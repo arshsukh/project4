@@ -1,0 +1,36 @@
+<html>
+
+<body>
+	<h2>Top 3 products</h2>
+	<hr>
+
+     <link rel="stylesheet" ="text/css href="style.css" />
+
+	<div id="productlist">
+	</div>
+
+	<script type="text/javascript">
+        
+	var myArr;
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onreadystatechange = function() {
+    	if (this.readyState == 4 && this.status == 200) {    		
+    	    myArr = JSON.parse(this.responseText);
+    	    var html="";
+    	    for(var i=0;i<3;i++){
+    	    	html+="<div><h3>Title: "+myArr.items[i].name+"</h3>";
+    	    	html+="<h5>Price: "+myArr.items[i].price+"</h5>";
+    	    	html+="<img height='200' width='200' src='images/"+myArr.items[i].image+"'/>";
+    	    	html+="<p><b>Description</b>: "+myArr.items[i].description+"</p>";
+    	    	html+="<p><b>Features</b>: "+myArr.items[i].features+"</p>";
+    	    	html+="<b>Map</b><iframe width='600' height='500' id='gmap_canvas' src='https://maps.google.com/maps?q="+myArr.items[i].address+"&t=&z=13&ie=UTF8&iwloc=&output=embed' frameborder='0' scrolling='no' marginheight='0' marginwidth='0'></iframe></div><hr>";
+    	    }
+    	    document.getElementById("productlist").innerHTML=html;
+  		}		
+	};
+	xmlhttp.open("GET", "data.json", true);
+	xmlhttp.send();
+</script>
+</body>
+</html>
+

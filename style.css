@@ -1,0 +1,31 @@
+/*css document*/
+
+body{
+	background-color: tomato;
+	 font-family: Arial;
+	  margin: 0%;
+}
+
+h2{
+	font-family: red serif;
+	font-size: 50px;
+	  font-weight: bold;
+    text-align: center;
+    text-decoration-color: red;
+
+}
+
+h4 {
+  color: white;
+  text-align: center;
+}
+
+p {
+  font-family: verdana;
+  font-size: 20px;
+}
+
+form{
+	text-align: center;
+}
+
